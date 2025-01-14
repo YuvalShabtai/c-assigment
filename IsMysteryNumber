@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        public static bool IsMysteryNumber(int number)
+        {
+            if (number % 3 != 0)
+            {
+                return false;
+            }
+
+            while (number != 0)
+            {
+                int digit = number % 10; 
+                if (digit == 3)
+                {
+                    return false; 
+                }
+                number /= 10; 
+            }
+
+            return true;
+        }
+
+        static void Main(string[] args)
+        {
+            int number = 9;
+            bool result = IsMysteryNumber(number);
+            Console.WriteLine($"the number {number} is {result}");
+        }
+    }
+}
